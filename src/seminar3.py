@@ -175,7 +175,6 @@ class TwoLayerNet:
 
         tmp_d_out = self.d_out # dL_dZ
         for layer in reversed(self.layers):
-            
             tmp_d_out = layer.backward(tmp_d_out)
             for param in layer.params().values():
                 reg_loss,reg_grad = l2_regularization(param.value,self.reg)
@@ -237,7 +236,6 @@ def train():
     # ***** START OF YOUR CODE *****
     n_input, n_output = 3072,10
     hidden = 100
-    
     learning_rate = 0.01
     reg = 1e-2
     num_iters = 1000
@@ -264,7 +262,6 @@ Train accuracy: {cls.evaluate(x_train, y_train)}
 Test accuracy: {cls.evaluate(x_test, y_test)}  
 
 <img src="loss.png">
-
 """
 
     print(report)
